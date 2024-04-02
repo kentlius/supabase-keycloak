@@ -2,6 +2,7 @@ import { signInWithKeycloak, signOut } from "@/app/actions";
 
 import { createClient } from "@/utils/supabase/server";
 import { Button } from "@/components/ui/button";
+import { LoginButton } from "@/components/login-button";
 
 export default async function Home() {
   const supabase = createClient();
@@ -23,7 +24,7 @@ export default async function Home() {
         </div>
       ) : (
         <form action={signInWithKeycloak}>
-          <Button>Sign in with Keycloak</Button>
+          <LoginButton />
         </form>
       )}
     </main>
