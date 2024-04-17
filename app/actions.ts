@@ -10,7 +10,7 @@ export async function signInWithKeycloak(formData: FormData) {
     provider: "keycloak",
     options: {
       scopes: "openid",
-      redirectTo: "http://localhost:3000/auth/callback",
+      redirectTo: process.env.NEXT_PUBLIC_VERCEL_URL + "/auth/callback",
     },
   });
 
