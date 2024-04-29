@@ -20,6 +20,6 @@ export async function signInWithKeycloak(formData: FormData) {
 }
 
 export async function signOut() {
-  const supabase = createClient();
-  const { error } = await supabase.auth.signOut();
+  const keycloakLogoutUrl = `${process.env.SUPABASE_AUTH_EXTERNAL_KEYCLOAK_URL}/protocol/openid-connect/logout?post_logout_redirect_uri=${process.env.NEXT_PUBLIC_VERCEL_URL}/logout/callback&client_id=${process.env.SUPABASE_AUTH_EXTERNAL_KEYCLOAK_CLIENT_ID}`;
+  return redirect(keycloakLogoutUrl);
 }
